@@ -1,0 +1,211 @@
+    main {
+      flex: 1; 
+      max-width: 1200px; 
+            width: 95%; 
+      margin: 2rem auto; 
+      padding: 0 20px; 
+}
+
+h1 {
+      color: #4cc9f0; 
+      margin-bottom: 1.5rem; 
+      text-align: center; 
+      font-size: 2.2rem; 
+}
+
+.main-container {
+      display: flex;
+      gap: 30px; 
+      align-items: flex-start; 
+}
+
+.lista-container {
+      flex: 1;
+}
+
+.imagen-container {
+      flex: 1; 
+      position: sticky; 
+      top: 100px; 
+      height: 500px; 
+      background-color: #191970; 
+      border-radius: 8px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+      margin-top: 1rem; 
+      transition: top 0.2s ease; 
+}
+
+.imagen-container .placeholder {
+      color: #4cc9f0; 
+      font-size: 1.1rem; 
+      opacity: 0.7; 
+      text-align: center; 
+      padding: 20px; 
+}
+
+.filosofo-imagen {
+      max-width: 100%; 
+      max-height: 100%; 
+      border-radius: 20px; 
+      display: none; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: all 0.3s ease; 
+      cursor: pointer; 
+}
+
+
+.categoria {
+      margin-bottom: 1.5rem; 
+      background-color: #16213e; 
+      border-radius: 8px; 
+      overflow: hidden; 
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+details {
+      transition: all 0.3s ease; 
+}
+
+summary {
+      font-size: 1.2rem; 
+      font-weight: bold; 
+      background-color: #8A9A5B;
+      color: #16213e; 
+      padding: 12px 15px; 
+      cursor: pointer; 
+      outline: none; 
+      transition: all 0.3s ease; 
+}
+
+summary:hover {
+      background-color: #38b6db; 
+}
+
+ul.filosofo-lista {
+      padding: 15px; 
+      list-style-type: none; 
+}
+
+ul.filosofo-lista li {
+      margin: 10px 0; 
+      padding: 8px 0; 
+      border-bottom: 1px solid rgba(76, 201, 240, 0.2); 
+}
+
+ul.filosofo-lista li:last-child {
+      border-bottom: none; 
+}
+
+ul.filosofo-lista li a {
+      color: #e6e6e6; 
+      text-decoration: none; 
+      display: block; 
+      padding: 5px 0; 
+      transition: all 0.2s ease; 
+}
+
+ul.filosofo-lista li a:hover {
+      color: #4cc9f0; 
+      transform: translateX(5px); 
+}
+
+
+.modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0, 0, 0, 0.9); 
+      overflow: auto; 
+}
+
+.modal-content {
+      background-color: #16213e; 
+      margin: 5% auto; 
+      padding: 30px; 
+      width: 80%; 
+      max-width: 700px; 
+      border-radius: 8px; 
+      position: relative; 
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-image {
+      width: 100%; 
+      max-height: 400px; 
+      object-fit: contain; 
+      border-radius: 4px; 
+      margin-bottom: 20px; 
+}
+
+.modal-description {
+      color: #e6e6e6; 
+      font-size: 1.1rem; 
+      line-height: 1.6; 
+      }
+
+.close-btn {
+      position: absolute; 
+      top: 15px; 
+      right: 25px; 
+      color: #4cc9f0; 
+      font-size: 28px; 
+     font-weight: bold; 
+      cursor: pointer; 
+      transition: color 0.3s; 
+}
+
+.close-btn:hover {
+      color: #f5f6fa; 
+}
+
+
+@media (max-width: 768px) {
+      .navbar {
+        flex-direction: column; 
+      }
+      
+      .nav-links {
+        margin-top: 15px; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+      }
+      
+      .nav-links li {
+        margin: 5px 10px; 
+      }
+      
+      .main-container {
+        flex-direction: column; 
+      }
+      
+      .imagen-container {
+        height: 300px; 
+        margin-top: 30px; 
+      }
+}
+@media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem; 
+      }
+      
+      .modal-content {
+        width: 95%; 
+        padding: 20px;
+      }
+      
+      .modal-image {
+        max-height: 250px; 
+      }
+}

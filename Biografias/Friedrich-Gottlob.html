@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" style="font-size: 16px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friedrich Gottlob</title>
+  <link rel="stylesheet" href="/public/css/hnf.css" media="screen">
+  <link rel="stylesheet" href="/public/css/bio.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    
+  </style>
+</head>
+<body class="u-body u-xl-mode" data-lang="es">
+
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="/public/imagen/logo.jpeg" alt="Logo">
+        <span class="logo-text">EL ARTE PENSAR</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/filosofos.html">Filósofos</a></li>
+        <li><a href="/biografias.html">Biografías</a></li>
+        <li><a href="#footer">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenido">
+    <h2 class="titulo">Friedrich Ludwig Gottlob Frege (1848-1925)</h2>
+    <img src="/public/imagen/Friedrich-Gottlob.jpeg" alt="Friedrich-Gottlob" class="video-imagen" onclick="reproducirVideo()">
+    <br><br>
+    <button onclick="reproducirVideo()" style="padding: 10px 20px; background-color: #74b9ff; color: white; border: none; border-radius: 5px; cursor: pointer;">Reproducir video</button>
+    <p class="texto-justificado"><strong>Friedrich Ludwig Gottlob Frege</strong> fue un filósofo, lógico y matemático alemán, considerado uno de los padres fundadores de la filosofía analítica y de la lógica moderna. Su trabajo revolucionó la forma en que se comprende el lenguaje, el pensamiento y las matemáticas.</p>
+    <p class="texto-justificado">Frege desarrolló un sistema lógico formal que sentó las bases de la lógica de predicados, superando la lógica aristotélica tradicional. Su obra más influyente, <em>Begriffsschrift</em> (1879), introdujo una notación formal que influyó profundamente en la lógica matemática y en pensadores posteriores como Russell y Wittgenstein.</p>
+    <p class="texto-justificado">En filosofía del lenguaje, Frege propuso la distinción entre <strong>sentido</strong> y <strong>referencia</strong>, conceptos fundamentales para entender cómo las palabras se relacionan con el mundo y con el pensamiento. Esta idea tuvo un impacto crucial en la semántica y la teoría de la verdad.</p>
+    <p class="texto-justificado">Aunque sus escritos fueron ignorados en su tiempo, hoy es ampliamente reconocido como un pensador clave en la historia de la lógica, la matemática y la filosofía del lenguaje.</p>
+  </main>
+
+  <hr style="margin-top: 3rem;">
+
+  <section id="foro-comentarios" class="contenido">
+    <h3 class="color-foro">💬 Foro de discusión</h3>
+    <form id="comentarioForm" style="margin-bottom: 2rem;">
+      <label class="color-foro"for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" required style="width: 100%; margin-bottom: 1rem;"><br>
+
+      <label class="color-foro" for="comentario">Comentario:</label><br>
+      <textarea id="comentario" rows="4" required style="width: 100%; margin-bottom: 1rem;"></textarea><br>
+
+      <label class="color-foro" for="archivo">Archivo complementario (opcional):</label><br>
+      
+      
+      <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display: none;">
+      
+      <label id="labelArchivo" for="archivo">Seleccionar archivo</label>
+      
+      <span id="nombreArchivo">Ningún archivo seleccionado</span>
+      <br><br>
+
+      <button type="submit" style="padding: 8px 16px; background-color: #478ac9; color: white; border: none; border-radius: 5px;">Publicar</button>
+    </form>
+
+    <div id="comentariosList">
+      <h4>🗂 Comentarios recientes</h4>
+    </div>
+  </section>
+
+  <footer id="footer"> 
+        <div class="footer-content">
+            <div class="footer-text">
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p> 
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <!-- Enlace a Facebook -->
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <!-- Enlace a Instagram -->
+            </div>
+        </div>
+    </footer>
+
+
+  <script>
+    function reproducirVideo() {
+      window.open('https://www.youtube.com/watch?v=9hmG2ZsyVcI', '_blank');
+    }
+
+    
+    const inputArchivo = document.getElementById('archivo');
+    const nombreArchivo = document.getElementById('nombreArchivo');
+
+    inputArchivo.addEventListener('change', () => {
+      if (inputArchivo.files.length > 0) {
+        nombreArchivo.textContent = inputArchivo.files[0].name;
+      } else {
+        nombreArchivo.textContent = 'Ningún archivo seleccionado';
+      }
+    });
+
+    document.getElementById('comentarioForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const nombre = document.getElementById('nombre').value;
+      const comentario = document.getElementById('comentario').value;
+      const archivo = document.getElementById('archivo').files[0];
+
+      if (!nombre || !comentario) {
+        alert('Por favor, completa todos los campos requeridos.');
+        return;
+      }
+
+      const comentariosList = document.getElementById('comentariosList');
+      const nuevoComentario = document.createElement('div');
+      nuevoComentario.className = 'comentario';
+      nuevoComentario.innerHTML = `<strong>${nombre}</strong>: ${comentario}`;
+      
+      if (archivo) {
+        const linkArchivo = document.createElement('a');
+        linkArchivo.href = URL.createObjectURL(archivo);
+        linkArchivo.download = archivo.name;
+        linkArchivo.textContent = ' Descargar archivo adjunto';
+        nuevoComentario.appendChild(linkArchivo);
+      }
+
+      comentariosList.appendChild(nuevoComentario);
+
+      
+      document.getElementById('comentarioForm').reset();
+      nombreArchivo.textContent = 'Ningún archivo seleccionado';
+    });
+  </script>
+
+</body>
+</html>

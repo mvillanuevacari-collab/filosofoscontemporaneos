@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Proyecto Final - Filósofos Contemporáneos</title> 
+    <link rel="stylesheet" href="public/css/hnf.css"> 
+    <link rel="stylesheet" href="public/css/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+</head>
+<body>
+    <header> 
+        <nav class="navbar"> 
+            <div class="logo-container"> 
+                <img src="public/imagen/logo.jpeg" alt="Logo">
+                <span class="logo-text">EL ARTE DE PENSAR </span> 
+            </div>
+            
+            <ul class="nav-links"> 
+                <li><a href="/index.html">Inicio</a></li> 
+                <li><a href="/filosofos.html">Filósofos</a></li> 
+                <li><a href="/biografias.html">Biografías</a></li> 
+                <li><a href="#footer">Contactos</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section" id="inicio"> 
+        <div class="hero-content"> 
+            <h1 class="project-title"> 
+           "EL PENSAMIENTO CRÍTICO COMO ACTO DE LIBERTAD"
+            </h1>
+            <p class="project-subtitle"> 
+                "GRADUALMENTE LA IDENTIDAD SE PIERDE, LA AUTENTICIDAD SE VUELVE UN LUJO, Y AUNQUE NADIE ES NATIVAMENTE ORIGINAL, TODO EL MUNDO ES CAPAZ DE CREAR Y PENSAR MÁS ALLÁ"<br> <!-- Indica el propósito del proyecto -->
+               
+            </p>
+            <div class="author-photos"> 
+                <img src="/public/imagen/filosofo1.jpg" alt="Retrato de filósofo contemporáneo 1"> 
+                <img src="/public/imagen/filosofo2.jpg" alt="Retrato de filósofo contemporáneo 2"> 
+                <img src="/public/imagen/filosofo3.jpg" alt="Retrato de filósof contemporáneo 3">
+            </div>
+        </div>
+    </section>
+
+    <div id="infoModalIndex" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img class="modal-image" id="modalImgIndex" src="" alt="Imagen ampliada del filósofo">
+    
+    <div class="modal-extra-comment" id="modalExtraCommentIndex" style="color: #a0c4ff; margin-bottom: 10px; font-style: italic;"></div>
+    <div class="modal-description" id="modalDescIndex"></div>
+    <div class="modal-author" id="modalAuthorIndex" style="text-align: center; margin-top: 10px; font-weight: bold; color: #74b9ff;"></div>
+  </div>
+    </div>
+
+     <footer id="footer"> 
+        <div class="footer-content"> 
+            <div class="footer-text"> 
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p> 
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>  
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a> 
+            </div>
+        </div>
+        <button id="toggle-theme" aria-label="Cambiar tema" title="Cambiar tema"> 
+            <i class="fas fa-toggle-on"></i> 
+        </button>
+    </footer>
+    
+    <script>
+        const toggleButton = document.getElementById('toggle-theme'); 
+        let isDarkMode = true;
+        toggleButton.addEventListener('click', () => { 
+            document.body.classList.toggle('light-mode', !isDarkMode); 
+            document.body.classList.toggle('dark-mode', isDarkMode); 
+            isDarkMode = !isDarkMode;
+        });
+    </script>
+
+    
+    <script>
+  
+  const infoIndex = {
+  "filosofo1.jpg": {
+    extraComment: "\"No hay hechos, solo interpretaciones.\"",
+    descripcion: "El autor se opone a la idea de una verdad objetiva, ya que nuestras verdades se basan en diferentes factores.",
+    autor: "- Friedrich Nietzsche -"
+  },
+  "filosofo2.jpg": {
+    extraComment: "",
+    descripcion: "\"Un día despertarás y verás un bello día. Habrá sol, y todo será nuevo, cambiado, limpido. Aquello que primero te parecía imposible será simple, normal. ¿No me crees? Yo estoy seguro. Y muy pronto. Quizas mañana.\"",
+    autor: "- Fiódor Dostoievski -"
+  },
+  "filosofo3.jpg": {
+    extraComment: "",
+    descripcion: "\"Siempre ve demasiado lejos, porque ahí es donde encontrarás la verdad.\"",
+    autor: "- Albert Camus -"
+  }
+};
+
+  
+  const modalIndex = document.getElementById('infoModalIndex');
+  const modalImgIndex = document.getElementById('modalImgIndex');
+  const modalDescIndex = document.getElementById('modalDescIndex');
+  const modalAuthorIndex = document.getElementById('modalAuthorIndex');
+  const closeBtnIndex = modalIndex.querySelector('.close-btn');
+
+  
+  function openModalIndex(imgElement) {
+  const src = imgElement.getAttribute('src');
+  const filename = src.split('/').pop();
+  modalImgIndex.src = src;
+  modalExtraCommentIndex.textContent = infoIndex[filename]?.extraComment || "";
+  modalDescIndex.textContent = infoIndex[filename]?.descripcion || "Descripción no disponible";
+  modalAuthorIndex.textContent = infoIndex[filename]?.autor || "";
+  modalIndex.style.display = 'block';
+}
+
+
+  
+  document.querySelectorAll('.author-photos img').forEach(img => {
+    img.style.cursor = 'pointer'; 
+    img.addEventListener('click', () => openModalIndex(img));
+  });
+
+  
+  closeBtnIndex.addEventListener('click', () => {
+    modalIndex.style.display = 'none';
+  });
+
+  
+  window.addEventListener('click', (event) => {
+    if (event.target === modalIndex) {
+      modalIndex.style.display = 'none';
+    }
+  });
+</script>
+
+
+</body>
+</html>

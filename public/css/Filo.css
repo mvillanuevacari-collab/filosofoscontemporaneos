@@ -1,0 +1,125 @@
+ 
+.contenido {
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+
+
+img {
+    width: 300px; 
+    height: auto; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+
+.filosofo-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: start; 
+    background-color: #fff; 
+    padding: 10px; 
+    border-radius: 10px; 
+    height: 100%; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+
+.coltext {
+    font-family: Arial, sans-serif; 
+    color: #333; 
+}
+
+
+h3 {
+    color: #425f7c;
+    font-size: 1.2rem; 
+    margin: 10px 0; 
+    text-align: center; 
+}
+label {
+    color: #425f7c;
+    font-weight: bold; 
+    margin-top: 10px; 
+}   
+
+.filosofo-card:hover {
+    transform: scale(1.05); 
+}
+
+.filosofo-card img {
+    width: 100%; 
+    max-height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    aspect-ratio: 1 / 1; 
+}
+
+
+.filosofo-card h3 {
+    margin-top: 10px; 
+    text-align: center;
+    font-size: 1rem; 
+}
+
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.5cm; 
+}
+
+
+.video-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+
+.video-container iframe {
+    width: 100%; 
+    height: 200px; 
+}
+
+
+.tamtext {
+    font-size: 1.2rem; 
+    text-align: center; 
+   margin: 20px 0; 
+    font-weight: bold; 
+}
+
+#comentarioForm {
+  width: 40%;
+  margin: 0 auto; 
+  box-sizing: border-box; 
+}
+
+
+
+@media (max-width: 768px) {
+  #comentarioForm {
+    width: 90%;
+  }
+}
+@media (max-width: 991px) {
+    .u-sheet-1 {
+        grid-template-columns: repeat(2, 1fr) !important; 
+    }
+}
+
+@media (max-width: 575px) {
+    .u-sheet-1 {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}

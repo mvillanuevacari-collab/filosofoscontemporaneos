@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" style="font-size: 16px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friedrich Nietzsche</title>
+  <link rel="stylesheet" href="/public/css/hnf.css" media="screen">
+  <link rel="stylesheet" href="/public/css/bio.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    
+  </style>
+</head>
+<body class="u-body u-xl-mode" data-lang="es">
+
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="/public/imagen/logo.jpeg" alt="Logo">
+        <span class="logo-text">EL ARTE DE PENSAR</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/filosofos.html">Filósofos</a></li>
+        <li><a href="/biografias.html">Biografías</a></li>
+        <li><a href="#footer">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenido">
+    <h2 class="titulo">Friedrich Nietzsche (1844-1900)</h2>
+    <img src="/public/imagen/Friedrich-Nietzsche.jpeg" alt="Friedrich-Nietzsche" class="video-imagen" onclick="reproducirVideo()">
+    <br><br>
+    <button onclick="reproducirVideo()" style="padding: 10px 20px; background-color: #74b9ff; color: white; border: none; border-radius: 5px; cursor: pointer;">Reproducir video</button>
+    <p class="texto-justificado"><strong>Friedrich Nietzsche</strong> fue un filósofo alemán que revolucionó el pensamiento moderno con su crítica radical a la moral, la religión, la metafísica y la cultura occidental. Es una figura central en la genealogía, el existencialismo y la postmodernidad.</p>
+    <p class="texto-justificado">Su filosofía desafía la verdad absoluta, proclamando la "muerte de Dios" y el fin de los valores tradicionales. Propuso el concepto del <em>superhombre</em> (Übermensch), como símbolo del individuo que crea sus propios valores en un mundo sin fundamentos trascendentes.</p>
+    <p class="texto-justificado">Nietzsche desarrolló la idea del <em>eterno retorno</em> como prueba existencial de autenticidad y responsabilidad. Además, criticó la moral cristiana por ser una moral de resentimiento, y abogó por una afirmación vitalista de la existencia.</p>
+    <p class="texto-justificado">Su estilo aforístico y poético lo hace único en la historia de la filosofía. A pesar de ser malinterpretado por corrientes ideológicas, su obra sigue inspirando la crítica cultural, la psicología, la literatura y el arte.</p>
+  </main>
+
+  <hr style="margin-top: 3rem;">
+
+  <section id="foro-comentarios" class="contenido">
+    <h3 class="color-foro">💬 Foro de discusión</h3>
+    <form id="comentarioForm" style="margin-bottom: 2rem;">
+      <label class="color-foro"for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" required style="width: 100%; margin-bottom: 1rem;"><br>
+
+      <label class="color-foro" for="comentario">Comentario:</label><br>
+      <textarea id="comentario" rows="4" required style="width: 100%; margin-bottom: 1rem;"></textarea><br>
+
+      <label class="color-foro" for="archivo">Archivo complementario (opcional):</label><br>
+      
+    
+      <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display: none;">
+      
+      <label id="labelArchivo" for="archivo">Seleccionar archivo</label>
+      
+      <span id="nombreArchivo">Ningún archivo seleccionado</span>
+      <br><br>
+
+      <button type="submit" style="padding: 8px 16px; background-color: #478ac9; color: white; border: none; border-radius: 5px;">Publicar</button>
+    </form>
+
+    <div id="comentariosList">
+      <h4>🗂 Comentarios recientes</h4>
+    </div>
+  </section>
+
+  <footer id="footer"> 
+        <div class="footer-content"> 
+            <div class="footer-text"> 
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p> 
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> <!-- Enlace a Facebook -->
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title= "Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <!-- Enlace a Instagram -->
+            </div>
+        </div>
+    </footer>
+
+
+ <script>
+    function reproducirVideo() {
+      window.open('https://www.youtube.com/watch?v=9hmG2ZsyVcI', '_blank');
+    }
+
+    
+    const inputArchivo = document.getElementById('archivo');
+    const nombreArchivo = document.getElementById('nombreArchivo');
+
+    inputArchivo.addEventListener('change', () => {
+      if (inputArchivo.files.length > 0) {
+        nombreArchivo.textContent = inputArchivo.files[0].name;
+      } else {
+        nombreArchivo.textContent = 'Ningún archivo seleccionado';
+      }
+    });
+
+    document.getElementById('comentarioForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const nombre = document.getElementById('nombre').value;
+      const comentario = document.getElementById('comentario').value;
+      const archivo = document.getElementById('archivo').files[0];
+
+      if (!nombre || !comentario) {
+        alert('Por favor, completa todos los campos requeridos.');
+        return;
+      }
+
+      const comentariosList = document.getElementById('comentariosList');
+      const nuevoComentario = document.createElement('div');
+      nuevoComentario.className = 'comentario';
+      nuevoComentario.innerHTML = `<strong>${nombre}</strong>: ${comentario}`;
+      
+      if (archivo) {
+        const linkArchivo = document.createElement('a');
+        linkArchivo.href = URL.createObjectURL(archivo);
+        linkArchivo.download = archivo.name;
+        linkArchivo.textContent = ' Descargar archivo adjunto';
+        nuevoComentario.appendChild(linkArchivo);
+      }
+
+      comentariosList.appendChild(nuevoComentario);
+
+  
+      document.getElementById('comentarioForm').reset();
+      nombreArchivo.textContent = 'Ningún archivo seleccionado';
+    });
+  </script>
+
+</body>
+</html>

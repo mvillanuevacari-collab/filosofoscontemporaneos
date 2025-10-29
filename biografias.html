@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es" style="font-size: 16px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biografías de Filósofos</title>
+  <link rel="stylesheet" href="public/css/biografias.css">
+  <link rel="stylesheet" href="public/css/hnf.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="public/imagen/logo.jpeg" alt="Logo">
+        <span class="logo-text">EL ARTE DE PENSAR</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/filosofos.html">Filósofos</a></li>
+        <li><a href="/biografias.html">Biografías</a></li>
+        <li><a href="#footer">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <h1>Biografías de Filósofos</h1> 
+    
+    <div class="main-container"> 
+      <div class="lista-container"> 
+        <div class="categoria"> 
+          <details> 
+            <summary>Filosofía analítica</summary>
+            <ul class="filosofo-lista">
+              <li><a href="Biografias/Friedrich-Gottlob.html" onmouseover="showImage('../public/imagen/Friedrich-Gottlob.jpeg')">Friedrich Ludwig Gottlob Frege</a></li> 
+              <li><a href="Biografias/Bertrand-Russell.html" onmouseover="showImage('../public/imagen/Bertrand-Russell.jpeg')">Bertrand Arthur William Russell</a></li> 
+              <li><a href="Biografias/Johann-Wittgenstein.html" onmouseover="showImage('../public/imagen/Johann-Wittgenstein.jpeg')">Ludwig Josef Johann Wittgenstein</a></li> 
+              <li><a href="Biografias/Edward-Moore.html" onmouseover="showImage('../public/imagen/Edward-Moore.jpeg')">George Edward Moore</a></li> 
+            </ul>
+          </details>
+        </div>
+
+         <div class="categoria"> 
+          <details>
+            <summary>Filosofía continental - Existencialismo</summary>
+            <ul class="filosofo-lista"> 
+              <li><a href="Biografias/Soren-Kierkegard.html" onmouseover="showImage('../public/imagen/Soren-Kierkegard.jpeg')">Søren Kierkegaard</a></li> 
+              <li><a href="Biografias/Jean-Sartre.html" onmouseover="showImage('../public/imagen/Jean-Sartre.jpeg')">Jean-Paul Sartre</a></li> 
+              <li><a href="Biografias/Simone-Beauvoir.html" onmouseover="showImage('../public/imagen/Simone-Beauvoir.jpeg')">Simone de Beauvoir</a></li> 
+              <li><a href="Biografias/Albert-Camus.html" onmouseover="showImage('../public/imagen/Albert-Camus.jpeg')">Albert Camus</a></li>
+              <li><a href="Biografias/Fiodor-Dostoievski.html" onmouseover="showImage('../public/imagen/Fiodor-Dostoievski.jpeg')">Fiódor Dostoievski</a></li> 
+            </ul>
+          </details>
+        </div>
+
+        <div class="categoria">
+          <details>
+            <summary>Filosofía continental - Fenomenología y Hermenéutica</summary>
+            <ul class="filosofo-lista">
+              <li><a href="Biografias/Edmund-Husserl.html" onmouseover="showImage('../public/imagen/Edmund-Husserl.jpeg')">Edmund Husserl</a></li>
+              <li><a href="Biografias/Martin-Heidegger.html" onmouseover="showImage('../public/imagen/Martin-Heidegger.jpeg')">Martin Heidegger</a></li>
+              <li><a href="Biografias/Hans-Gadamer.html" onmouseover="showImage('../public/imagen/Hans-Gadamer.jpeg')">Hans-Georg Gadamer</a></li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="categoria">
+          <details>
+            <summary>Filosofía continental - Crítica Social y Escuela de Frankfurt</summary>
+            <ul class="filosofo-lista">
+              <li><a href="Biografias/Theodor-Adorno.html" onmouseover="showImage('../public/imagen/Theodor-Adorno.jpeg')">Theodor Adorno</a></li>
+              <li><a href="Biografias/Herbert-Marcuse.html" onmouseover="showImage('../public/imagen/Herbert-Marcuse.jpeg')">Herbert Marcuse</a></li>
+              <li><a href="Biografias/Michel-Foucault.html" onmouseover="showImage('../public/imagen/Michel-Foucault.jpeg')">Michel Foucault</a></li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="categoria">
+          <details>
+            <summary>Filosofía continental - Genealogía y Crítica de la Moral</summary>
+            <ul class="filosofo-lista">
+              <li><a href="Biografias/Friedrich-Nietzsche.html" onmouseover="showImage('../public/imagen/Friedrich-Nietzsche.jpeg')">Friedrich Nietzsche</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      
+      <div class="imagen-container"> 
+        <div class="placeholder">Pase el cursor sobre un filósofo para ver su imagen</div> 
+        <img class="filosofo-imagen" id="filosofo-imagen" src="" alt="Imagen del filósofo"> 
+      </div>
+    </div>
+  </main>
+   
+  
+  <div id="infoModal" class="modal"> 
+    <div class="modal-content"> 
+      <span class="close-btn">&times;</span> 
+      <img class="modal-image" id="modalImg" src="" alt="Imagen ampliada del filósofo"> 
+      <div class="modal-description" id="modalDesc"></div> 
+    </div>
+  </div>
+
+  <footer id="footer"> 
+        <div class="footer-content"> 
+            <div class="footer-text"> 
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p>
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> 
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+  </footer>
+  <script>
+    
+    function showImage(imageUrl) { 
+      const imagen = document.getElementById('filosofo-imagen'); 
+      const placeholder = document.querySelector('.placeholder'); 
+      
+      imagen.src = imageUrl; 
+      imagen.style.display = 'block'; 
+      placeholder.style.display = 'none';
+    }
+
+    
+    
+    const modal = document.getElementById('infoModal'); 
+    const modalImg = document.getElementById('modalImg'); 
+    const modalDesc = document.getElementById('modalDesc'); 
+    const closeBtn = document.querySelector('.close-btn'); 
+    const filosofoImg = document.querySelector('.filosofo-imagen'); 
+    
+    
+    const descripciones = {  
+      "Friedrich-Gottlob.jpeg": "Friedrich Ludwig Gottlob Frege (1848-1925) fue un matemático, lógico y filósofo alemán, considerado el padre de la lógica matemática y la filosofía analítica.",
+      "Bertrand-Russell.jpeg": "Bertrand Arthur William Russell (1872-1970) fue un filósofo, matemático y escritor británico, conocido por sus trabajos en lógica y filosofía del lenguaje.",
+      "Johann-Wittgenstein.jpeg": "Ludwig Wittgenstein (1889-1951)  fue un filósofo británico de origen austriaco, considerado por muchos como el filósofo más importante del siglo XX",
+      "Edward-Moore.jpeg": "George Edward Moore (1873-1958) fue un filósofo inglés que, junto con Bertrand Russell , Ludwig Wittgenstein y, anteriormente , Gottlob Frege, se ubicó entre los iniciadores de la filosofía analítica",
+      "Soren-Kierkegard.jpeg": "Søren Kierkegaard (1813-1855) fue un filósofo, teólogo y escritor danés, considerado el padre del existencialismo. Sus obras se centraron en la existencia individual, la libertad, la responsabilidad, la angustia y la desesperación",
+      "Jean-Sartre.jpeg": "Jean-Paul Sartre (1905-1980) fue un influyente filósofo, novelista y dramaturgo francés, considerado el principal exponente del existencialismo en el siglo XX",
+      "Simone-Beauvoir.jpeg": "Simone de Beauvoir (1908-1986) fue una filósofa, escritora y feminista francesa, reconocida por su obra --El Segundo Sexo- donde analiza la opresión de las mujeres y se considera un texto fundamental en la teoría feminista",
+      "Albert-Camus.jpeg": "Albert Camus (1913-1960) fue un novelista, ensayista, dramaturgo y filósofo francés, conocido por sus obras que exploran temas como el absurdo, el existencialismo y la rebelión social",
+      "Fiodor-Dostoievski.jpeg": "Fiódor Dostoyevski (1821-1881) fue un novelista y filósofo ruso, considerado uno de los más grandes escritores de la literatura universal. Sus obras abordan temas como la moralidad, la libertad, la culpa y la redención",
+      "Edmund-Husserl.jpeg": "Edmund Husserl (1859-1938) fue un filósofo alemán, fundador de la fenomenología, una corriente filosófica que estudia las estructuras de la experiencia consciente y la percepción",
+      "Martin-Heidegger.jpeg": "Martin Heidegger (1889-1976) fue un filósofo alemán, conocido por su obra -Ser y Tiempo- donde explora la naturaleza del ser, la existencia humana y el tiempo",
+      "Hans-Gadamer.jpeg": "Hans-Georg Gadamer (1900-2002) fue un filósofo alemán, conocido por su obra -Verdad y Método- donde desarrolla la hermenéutica filosófica, enfocándose en la interpretación de textos y la comprensión humana",
+      "Theodor-Adorno.jpeg": "Theodor Adorno (1903-1969) fue un filósofo, sociólogo y musicólogo alemán, miembro de la Escuela de Frankfurt, conocido por su crítica a la cultura de masas y su análisis de la sociedad contemporánea",
+      "Herbert-Marcuse.jpeg": "Herbert Marcuse (1898-1979) fue un filósofo y sociólogo alemán, miembro de la Escuela de Frankfurt, conocido por su crítica a la sociedad industrial avanzada y su defensa de la liberación social",
+      "Michel-Foucault.jpeg": "Michel Foucault (1926-1984) fue un filósofo, historiador y teórico social francés, conocido por sus estudios sobre el poder, la disciplina y la construcción del conocimiento en la sociedad moderna",
+      "Friedrich-Nietzsche.jpeg": "Friedrich Nietzsche (1844-1900) fue un filósofo alemán, conocido por su obra -Todas las cosas son verdaderas- donde explora la realidad y el poder de la mente humana",
+      
+    };
+     
+     filosofoImg.addEventListener('click', function() { 
+      if (this.src) { 
+        modalImg.src = this.src; 
+        const filename = this.src.split('/').pop(); 
+        modalDesc.textContent = descripciones[filename] || "Descripción no disponible"; 
+        modal.style.display = 'block'; 
+      }
+    });
+
+    
+    closeBtn.addEventListener('click', function() { 
+      modal.style.display = 'none'; 
+    });
+
+  
+     window.addEventListener('click', function(event) { 
+      if (event.target == modal) { 
+        modal.style.display = 'none'; 
+      }
+    });
+  </script>
+
+</body>
+</html>
+

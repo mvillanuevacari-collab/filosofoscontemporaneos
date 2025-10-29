@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" style="font-size: 16px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edward Moore</title>
+  <link rel="stylesheet" href="/public/css/hnf.css" media="screen">
+  <link rel="stylesheet" href="/public/css/bio.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    
+  </style>
+</head>
+<body class="u-body u-xl-mode" data-lang="es">
+
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="/public/imagen/logo.jpeg" alt="Logo">
+        <span class="logo-text">EL ARTE DE PENSAR</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/filosofos.html">Filósofos</a></li>
+        <li><a href="/biografias.html">Biografías</a></li>
+        <li><a href="#footer">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenido">
+    <h2 class="titulo">George Edward Moore (1873-1958)</h2>
+    <img src="/public/imagen/Edward-Moore.jpeg" alt="Edward-Moore" class="video-imagen" onclick="reproducirVideo()">
+    <br><br>
+    <button onclick="reproducirVideo()" style="padding: 10px 20px; background-color: #74b9ff; color: white; border: none; border-radius: 5px; cursor: pointer;">Reproducir video</button>
+    <p class="texto-justificado"><strong>George Edward Moore</strong> fue un filósofo británico y uno de los fundadores de la filosofía analítica. Junto con Bertrand Russell, revolucionó la filosofía del siglo XX al defender la claridad conceptual y el análisis lingüístico como métodos filosóficos fundamentales.</p>
+    <p class="texto-justificado">Moore es especialmente conocido por su obra <em>Principia Ethica</em> (1903), en la que critica el naturalismo ético y defiende la idea de que el bien es una propiedad simple e indefinible. Su "falacia naturalista" se convirtió en una noción central en la ética contemporánea.</p>
+    <p class="texto-justificado">También es célebre por su argumento de sentido común en contra del escepticismo, como en su famoso ejemplo: “Aquí hay una mano”. Moore defendía que algunas proposiciones son más ciertas que cualquier argumento filosófico que las cuestione.</p>
+    <p class="texto-justificado">Su influencia fue notable en el Círculo de Cambridge y en filósofos posteriores como Wittgenstein y los positivistas lógicos.</p>
+  </main>
+
+  <hr style="margin-top: 3rem;">
+
+  <section id="foro-comentarios" class="contenido">
+    <h3 class="color-foro">💬 Foro de discusión</h3>
+    <form id="comentarioForm" style="margin-bottom: 2rem;">
+      <label class="color-foro"for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" required style="width: 100%; margin-bottom: 1rem;"><br>
+
+      <label class="color-foro" for="comentario">Comentario:</label><br>
+      <textarea id="comentario" rows="4" required style="width: 100%; margin-bottom: 1rem;"></textarea><br>
+
+      <label class="color-foro" for="archivo">Archivo complementario (opcional):</label><br>
+      
+      
+      <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display: none;">
+      
+      <label id="labelArchivo" for="archivo">Seleccionar archivo</label>
+      
+      <span id="nombreArchivo">Ningún archivo seleccionado</span>
+      <br><br>
+
+      <button type="submit" style="padding: 8px 16px; background-color: #478ac9; color: white; border: none; border-radius: 5px;">Publicar</button>
+    </form>
+
+    <div id="comentariosList">
+      <h4>🗂 Comentarios recientes</h4>
+    </div>
+  </section>
+
+  <footer id="footer"> 
+        <div class="footer-content"> 
+            <div class="footer-text"> 
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p> 
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> 
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <!-- Enlace a Instagram -->
+            </div>
+        </div>
+    </footer>
+
+
+   <script>
+    function reproducirVideo() {
+      window.open('https://www.youtube.com/watch?v=9hmG2ZsyVcI', '_blank');
+    }
+
+    
+    const inputArchivo = document.getElementById('archivo');
+    const nombreArchivo = document.getElementById('nombreArchivo');
+
+    inputArchivo.addEventListener('change', () => {
+      if (inputArchivo.files.length > 0) {
+        nombreArchivo.textContent = inputArchivo.files[0].name;
+      } else {
+        nombreArchivo.textContent = 'Ningún archivo seleccionado';
+      }
+    });
+
+    document.getElementById('comentarioForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const nombre = document.getElementById('nombre').value;
+      const comentario = document.getElementById('comentario').value;
+      const archivo = document.getElementById('archivo').files[0];
+
+      if (!nombre || !comentario) {
+        alert('Por favor, completa todos los campos requeridos.');
+        return;
+      }
+
+      const comentariosList = document.getElementById('comentariosList');
+      const nuevoComentario = document.createElement('div');
+      nuevoComentario.className = 'comentario';
+      nuevoComentario.innerHTML = `<strong>${nombre}</strong>: ${comentario}`;
+      
+      if (archivo) {
+        const linkArchivo = document.createElement('a');
+        linkArchivo.href = URL.createObjectURL(archivo);
+        linkArchivo.download = archivo.name;
+        linkArchivo.textContent = ' Descargar archivo adjunto';
+        nuevoComentario.appendChild(linkArchivo);
+      }
+
+      comentariosList.appendChild(nuevoComentario);
+
+      
+      document.getElementById('comentarioForm').reset();
+      nombreArchivo.textContent = 'Ningún archivo seleccionado';
+    });
+  </script>
+
+</body>
+</html>

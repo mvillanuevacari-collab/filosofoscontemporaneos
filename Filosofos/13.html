@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es" style="font-size: 16px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Byung-Chul Han</title>
+  <link rel="stylesheet" href="/public/css/hnf.css" media="screen">
+  <link rel="stylesheet" href="/public/css/Filo.css" media="screen">
+  <link rel="stylesheet" href="/public/css/bio.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="u-body u-xl-mode" data-lang="es">
+
+   <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="/public/imagen/logo.jpeg" alt="Logo">
+        <span class="logo-text">EL ARTE DE PENSAR</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/filosofos.html">Filósofos</a></li>
+        <li><a href="/biografias.html">Biografías</a></li>
+        <li><a href="#footer">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="contenido">
+    <h2>Byung-Chul Han</h2>
+    <img src="/public/imagen/13.jpeg" alt="Byung-Chul Han">
+    <p class="texto-justificado"><strong>Byung-Chul Han</strong> es un filósofo surcoreano contemporáneo, afincado en Alemania, conocido por sus agudos análisis sobre la sociedad neoliberal, la cultura digital y la psicología del sujeto moderno. Su estilo ensayístico y claro lo ha convertido en uno de los pensadores más leídos del siglo XXI.</p>
+    <p class="texto-justificado">En obras como <em>La sociedad del cansancio</em> o <em>La agonía del Eros</em>, Han sostiene que hemos pasado de una sociedad disciplinaria a una de autoexplotación. Ya no estamos dominados por el deber, sino por el rendimiento y la positividad. Esto genera sujetos agotados, ansiosos y deprimidos.</p>
+    <p  class="texto-justificado">Para Han, la libertad moderna ha sido pervertida en una forma de presión: el “yo puedo” se convierte en una obligación de estar siempre disponible, productivo y visible. Las redes sociales, la hipertransparencia y el exceso de estímulos minan la capacidad de contemplación, deseo y pensamiento profundo.</p>
+    <p class="texto-justificado">También critica la pérdida del “otro”, el declive del eros y la transformación de la intimidad en mercancía. Propone recuperar el silencio, la negatividad y la lentitud como formas de resistencia ante el exceso de positividad y ruido contemporáneo.</p>
+    <p class="texto-justificado">Su obra es una llamada al pensamiento crítico, a la desaceleración y a la recuperación de una vida más reflexiva y humana.</p>
+    <p style="margin-top: 2rem; text-align: center;">
+      <h4>Vista Previa del documento PDF</h4>
+      <img src="/public/PDF/13.png" alt="Portada del artículo" class="portada-imagen" style="width: 250px; transition: transform 0.3s;">
+    </p>
+    <p style="margin-top: 2rem; text-align: center;">
+      <a href="/public/pdf/13.pdf" download class="u-button-style" style="padding: 10px 20px; background-color: #478ac9; color: white; border-radius: 5px; text-decoration: none;">
+        📥 Descargar PDF original
+      </a>
+    </p>
+  </main>
+<hr style="margin-top: 3rem;">
+<section id="foro-comentarios" class="contenido-c">
+  <h3>💬 Foro de discusión</h3>
+  <form id="comentarioForm" style="margin-bottom: 2rem;">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" required style="width: 100%; margin-bottom: 1rem;"><br>
+
+    <label for="comentario">Comentario:</label><br>
+    <textarea id="comentario" rows="4" required style="width: 100%; margin-bottom: 1rem;"></textarea><br>
+
+    <label for="archivo" style="font-weight: bold; color: #425f7c; margin-top: 10px; display: block;">Archivo complementario (opcional):</label>
+    
+    <!-- Input file oculto -->
+    <input type="file" id="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display: none;">
+    
+    <!-- Label personalizado para abrir selector -->
+    <label for="archivo" 
+           style="display: inline-block; padding: 8px 16px; background-color: #478ac9; color: white; border-radius: 5px; cursor: pointer; margin-bottom: 0.5rem;">
+      📁 Seleccionar archivo
+    </label>
+    
+    <!-- Texto que muestra el nombre del archivo o mensaje por defecto -->
+    <span id="nombreArchivo" style="color: gray; font-style: italic;">No se ha seleccionado ningún archivo</span><br><br>
+
+    <button type="submit" style="padding: 8px 16px; background-color: #478ac9; color: white; border: none; border-radius: 5px;">Publicar</button>
+  </form>
+
+  <div id="comentariosList">
+    <h4>🗂 Comentarios recientes</h4>
+    <!-- Comentarios se insertarán aquí -->
+  </div>
+</section>
+
+
+<footer id="footer"> 
+        <div class="footer-content"> 
+            <div class="footer-text"> 
+                <p> © "EXPLORA, CUESTIONA Y NUNCA ACEPTES LO EVIDENTE".</p> 
+            </div>
+            <div class="social-icons"> 
+                <a href="https://www.facebook.com/share/19Wcw7J3Ca/" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> 
+                <a href="https://www.instagram.com/maaaajo.__?igsh=MW93bnJiOXYycng1Nw==" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+<script>
+  const pageKey = window.location.pathname;
+  const form = document.getElementById('comentarioForm');
+  const comentariosList = document.getElementById('comentariosList');
+  const archivoInput = document.getElementById('archivo');
+  const nombreArchivo = document.getElementById('nombreArchivo');
+
+  function mostrarComentarios() {
+    const datos = JSON.parse(localStorage.getItem(pageKey)) || [];
+    comentariosList.innerHTML = '<h4>🗂 Comentarios recientes</h4>';
+    datos.forEach((item) => {
+      const div = document.createElement('div');
+      div.style.marginBottom = '1.5rem';
+      div.innerHTML = `
+        <strong>${item.nombre}</strong><br>
+        <p>${item.comentario}</p>
+        ${item.archivo ? `
+          <p style="color: #478ac9;">📎 Archivo adjunto: ${item.archivo}</p>
+        ` : ''}
+        <hr>
+      `;
+      comentariosList.appendChild(div);
+    });
+  }
+
+  archivoInput.addEventListener('change', () => {
+    if (archivoInput.files.length > 0) {
+      nombreArchivo.textContent = archivoInput.files[0].name;
+      nombreArchivo.style.color = '#25637e'; 
+      nombreArchivo.style.fontStyle = 'normal';
+    } else {
+      nombreArchivo.textContent = 'No se ha seleccionado ningún archivo';
+      nombreArchivo.style.color = ''; 
+      nombreArchivo.style.fontStyle = 'italic';
+    }
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const comentario = document.getElementById('comentario').value;
+    const archivo = archivoInput.files[0];
+
+    if (!nombre || !comentario) return;
+
+    const datos = JSON.parse(localStorage.getItem(pageKey)) || [];
+    datos.push({
+      nombre,
+      comentario,
+      archivo: archivo ? archivo.name : null  
+    });
+    localStorage.setItem(pageKey, JSON.stringify(datos));
+    form.reset();
+
+    
+    nombreArchivo.textContent = 'No se ha seleccionado ningún archivo';
+    nombreArchivo.style.color = ''; 
+    nombreArchivo.style.fontStyle = 'italic';
+
+    mostrarComentarios();
+  });
+
+  document.addEventListener('DOMContentLoaded', mostrarComentarios);
+</script>
+</body>
+</html>
