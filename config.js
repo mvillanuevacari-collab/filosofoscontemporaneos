@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const STATIC_DIR = path.join(__dirname, 'proyecto'); 
+//const STATIC_DIR = path.join(__dirname, 'proyecto');
+const STATIC_DIR = path.join(__dirname, 'filosofoscontemporaneos');
 app.use(express.static(STATIC_DIR));
 app.get('/', (req, res) => {
     res.sendFile(path.join(STATIC_DIR, 'index.html'));
